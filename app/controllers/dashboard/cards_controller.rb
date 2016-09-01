@@ -14,6 +14,7 @@ class Dashboard::CardsController < Dashboard::BaseController
 
   def create
     @card = current_user.cards.build(card_params)
+
     if @card.save
       redirect_to cards_path
     else
@@ -36,12 +37,12 @@ class Dashboard::CardsController < Dashboard::BaseController
 
   private
 
-  def set_card
-    @card = current_user.cards.find(params[:id])
-  end
+    def set_card
+      @card = current_user.cards.find(params[:id])
+    end
 
-  def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date,
+    def card_params
+      params.require(:card).permit(:original_text, :translated_text, :review_date,
                                  :image, :image_cache, :remove_image, :block_id)
-  end
+    end
 end

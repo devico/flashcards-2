@@ -42,5 +42,6 @@ en:
         messages:
           blank: 'Fill out the field.'
           too_short: 'Short value.'
+          password_confirmation: 'Values do not match.'
           confirmation: 'Values do not match.'
           taken: 'Not a unique value.'

@@ -4,12 +4,12 @@ class Dashboard::BaseController < ApplicationController
 
   private
 
-  def not_authenticated
-    redirect_to login_path, alert: t(:please_log_in)
-  end
+    def not_authenticated
+      redirect_to login_path, alert: t(:please_log_in)
+    end
 
-  def not_found
-    flash[:alert] = 'Вы обратились к несуществующей записи.'
-    redirect_to root_path
-  end
+    def not_found
+      flash[:alert] = 'Вы обратились к несуществующей записи.'
+      redirect_to root_path
+    end
 end

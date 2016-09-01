@@ -1,5 +1,4 @@
 class Dashboard::TrainerController < Dashboard::BaseController
-
   def index
     if params[:id]
       @card = current_user.cards.find(params[:id])
@@ -33,6 +32,7 @@ class Dashboard::TrainerController < Dashboard::BaseController
                           original_text: @card.original_text,
                           translated_text: @card.translated_text
       end
+
       redirect_to trainer_path
     else
       flash[:alert] = t(:incorrect_translation_alert)
@@ -40,9 +40,7 @@ class Dashboard::TrainerController < Dashboard::BaseController
     end
   end
 
-  private
-
-  def trainer_params
+  private def trainer_params
     params.permit(:user_translation)
   end
 end

@@ -42,6 +42,7 @@ ru:
       messages:
         blank: 'Заполните поле.'
         too_short: 'Короткое значение.'
+        password_confirmation: 'Значения не совпадают.'
         confirmation: 'Значения не совпадают.'
         taken: 'Не уникальное значение.'
         invalid: 'Не верный формат.'

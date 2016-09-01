@@ -33,9 +33,7 @@ class User < ActiveRecord::Base
     update_attribute(:current_block_id, nil)
   end
 
-  private
-
-  def set_default_locale
-    self.locale = I18n.locale.to_s
-  end
+  private def set_default_locale
+      self.locale = I18n.locale.to_s
+    end
 end
