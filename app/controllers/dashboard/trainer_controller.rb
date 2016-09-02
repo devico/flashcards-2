@@ -35,7 +35,9 @@ class Dashboard::TrainerController < Dashboard::BaseController
     end
   end
 
-  private def trainer_params
+  private
+
+  def trainer_params
     params.permit(:user_translation)
   end
 end

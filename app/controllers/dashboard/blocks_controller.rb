@@ -47,11 +47,11 @@ class Dashboard::BlocksController < Dashboard::BaseController
 
   private
 
-    def set_block
-      @block = current_user.blocks.find(params[:id])
-    end
+  def set_block
+    @block = current_user.blocks.find(params[:id])
+  end
 
-    def block_params
-      params.require(:block).permit(:title)
-    end
+  def block_params
+    params.require(:block).permit(:title)
+  end
 end

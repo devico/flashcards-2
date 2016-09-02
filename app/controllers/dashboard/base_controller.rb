@@ -4,11 +4,11 @@ class Dashboard::BaseController < ApplicationController
 
   private
 
-    def not_authenticated
-      redirect_to login_path, alert: t(:please_log_in)
-    end
+  def not_authenticated
+    redirect_to login_path, alert: t(:please_log_in)
+  end
 
-    def not_found
-      redirect_to root_path, alert: t(:not_found_alert)
-    end
+  def not_found
+    redirect_to root_path, alert: t(:not_found_alert)
+  end
 end

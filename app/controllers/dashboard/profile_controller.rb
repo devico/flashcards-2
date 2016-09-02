@@ -10,7 +10,9 @@ class Dashboard::ProfileController < Dashboard::BaseController
     end
   end
 
-  private def user_params
+  private
+
+  def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :locale)
   end
 end

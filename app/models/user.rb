@@ -36,11 +36,13 @@ class User < ActiveRecord::Base
   end
 
   def generate_random_card
-    current_cards = self.current_block.try(:cards) || self.cards
+    current_cards = current_block.try(:cards) || cards
     current_cards.first_pending || current_cards.first_repeating
   end
 
-  private def set_default_locale
-      self.locale = I18n.locale.to_s
-    end
+  private
+
+  def set_default_locale
+    self.locale = I18n.locale.to_s
+  end
 end

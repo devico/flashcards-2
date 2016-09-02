@@ -62,17 +62,17 @@ class Card < ActiveRecord::Base
 
   protected
 
-    def set_review_date_as_now
-      self.review_date = Time.current
-    end
+  def set_review_date_as_now
+    self.review_date = Time.current
+  end
 
-    def texts_are_not_equal
-      if full_downcase(original_text) == full_downcase(translated_text)
-        errors.add(:original_text, 'Вводимые значения должны отличаться.')
-      end
+  def texts_are_not_equal
+    if full_downcase(original_text) == full_downcase(translated_text)
+      errors.add(:original_text, 'Вводимые значения должны отличаться.')
     end
+  end
 
-    def full_downcase(str)
-      str.mb_chars.downcase.to_s.squeeze(' ').lstrip
-    end
+  def full_downcase(str)
+    str.mb_chars.downcase.to_s.squeeze(' ').lstrip
+  end
 end

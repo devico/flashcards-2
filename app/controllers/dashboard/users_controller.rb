@@ -4,7 +4,9 @@ class Dashboard::UsersController < Dashboard::BaseController
     redirect_to login_path, notice: t(:delete_user_notice)
   end
 
-  private def user_params
+  private
+
+  def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end

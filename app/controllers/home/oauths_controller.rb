@@ -25,7 +25,9 @@ class Home::OauthsController < Home::BaseController
     end
   end
 
-  private def auth_params
+  private
+
+  def auth_params
     params.permit(:code, :provider)
   end
 end

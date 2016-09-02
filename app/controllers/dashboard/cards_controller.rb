@@ -37,12 +37,12 @@ class Dashboard::CardsController < Dashboard::BaseController
 
   private
 
-    def set_card
-      @card = current_user.cards.find(params[:id])
-    end
+  def set_card
+    @card = current_user.cards.find(params[:id])
+  end
 
-    def card_params
-      params.require(:card).permit(:original_text, :translated_text, :review_date,
+  def card_params
+    params.require(:card).permit(:original_text, :translated_text, :review_date,
                                  :image, :image_cache, :remove_image, :block_id)
-    end
+  end
 end

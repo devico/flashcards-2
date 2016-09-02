@@ -17,11 +17,17 @@ doc.search('//table/tbody/tr').each do |row|
   original = row.search('td[2]')[0].content.downcase
   translated = row.search('td[4]')[0].content.downcase
 
-  card = Card.new(original_text: original, translated_text: translated, user_id: 1, block_id: 1)
+  card = Card.new(
+    original_text: original,
+    translated_text: translated,
+    user_id: 1,
+    block_id: 1
+  )
 
   msg =
     if card.save
-      "Saved: #{card.id}. original_text: #{card.original_text} - translated_text: #{card.translated_text} - user_id: #{card.user_id}"
+      "Saved: #{card.id}. original_text: #{card.original_text} - " +
+      "translated_text: #{card.translated_text} - user_id: #{card.user_id}"
     else
       card.errors.full_messages
     end
