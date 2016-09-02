@@ -1,16 +1,11 @@
 class Dashboard::TrainerController < Dashboard::BaseController
   def index
-    if params[:id]
-      @card = current_user.cards.find(params[:id])
-    else
-      if current_user.current_block
-        @card = current_user.current_block.cards.pending.first
-        @card ||= current_user.current_block.cards.repeating.first
+    @card =
+      if id = params[:id]
+        current_user.cards.find(id)
       else
-        @card = current_user.cards.pending.first
-        @card ||= current_user.cards.repeating.first
+        current_user.generate_random_card
       end
-    end
 
     respond_to do |format|
       format.html

@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
             inclusion: { in: I18n.available_locales.map(&:to_s),
                          message: 'Выберите локаль из выпадающего списка.' }
 
+  scope :with_email, -> { where.not(email: nil) }
+
   def has_linked_github?
     authentications.where(provider: 'github').present?
   end
@@ -31,6 +33,11 @@ class User < ActiveRecord::Base
 
   def reset_current_block
     update_attribute(:current_block_id, nil)
+  end
+
+  def generate_random_card
+    current_cards = self.current_block.try(:cards) || self.cards
+    current_cards.first_pending || current_cards.first_repeating
   end
 
   private def set_default_locale

@@ -23,6 +23,14 @@ class Card < ActiveRecord::Base
   scope :pending, -> { where('review_date <= ?', Time.current).order('RANDOM()') }
   scope :repeating, -> { where('quality < ?', REPEATING_QUANTITY).order('RANDOM()') }
 
+  def self.first_pending
+    pending.first
+  end
+
+  def self.first_repeating
+    repeating.first
+  end
+
   def check_translation(user_translation)
     distance = Levenshtein.distance(full_downcase(translated_text),
                                     full_downcase(user_translation))
@@ -43,7 +51,7 @@ class Card < ActiveRecord::Base
   end
 
   def self.pending_cards_notification
-    users = User.where.not(email: nil)
+    users = User.with_email
 
     users.each do |user|
       if user.cards.pending.any?
