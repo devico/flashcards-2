@@ -35,11 +35,6 @@ class User < ActiveRecord::Base
     update_attribute(:current_block_id, nil)
   end
 
-  def generate_random_card
-    current_cards = current_block.try(:cards) || cards
-    current_cards.first_pending || current_cards.first_repeating
-  end
-
   private
 
   def set_default_locale

@@ -1,11 +1,6 @@
 class Dashboard::TrainerController < Dashboard::BaseController
   def index
-    @card =
-      if id = params[:id]
-        current_user.cards.find(id)
-      else
-        current_user.generate_random_card
-      end
+    @card = RandomCardService.new(current_user, params[:id]).call
 
     respond_to do |format|
       format.html
@@ -16,10 +11,10 @@ class Dashboard::TrainerController < Dashboard::BaseController
   def review_card
     @card = current_user.cards.find(params[:card_id])
 
-    check_result = @card.check_translation(trainer_params[:user_translation])
+    check_result = CardTranslationService.new(@card, trainer_params[:user_translation]).call
 
-    if check_result[:state]
-      if check_result[:distance] == 0
+    if check_result.state
+      if check_result.distance == 0
         flash[:notice] = t(:correct_translation_notice)
       else
         flash[:alert] = t 'translation_from_misprint_alert',
