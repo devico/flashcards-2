@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
             inclusion: { in: I18n.available_locales.map(&:to_s),
                          message: 'Выберите локаль из выпадающего списка.' }
 
+  scope :with_email, -> { where.not(email: nil) }
+
   def has_linked_github?
     authentications.where(provider: 'github').present?
   end

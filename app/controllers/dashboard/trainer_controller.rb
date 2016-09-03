@@ -1,17 +1,6 @@
 class Dashboard::TrainerController < Dashboard::BaseController
-
   def index
-    if params[:id]
-      @card = current_user.cards.find(params[:id])
-    else
-      if current_user.current_block
-        @card = current_user.current_block.cards.pending.first
-        @card ||= current_user.current_block.cards.repeating.first
-      else
-        @card = current_user.cards.pending.first
-        @card ||= current_user.cards.repeating.first
-      end
-    end
+    @card = RandomCardService.new(current_user, params[:id]).call
 
     respond_to do |format|
       format.html
@@ -22,10 +11,10 @@ class Dashboard::TrainerController < Dashboard::BaseController
   def review_card
     @card = current_user.cards.find(params[:card_id])
 
-    check_result = @card.check_translation(trainer_params[:user_translation])
+    check_result = CardTranslationService.new(@card, trainer_params[:user_translation]).call
 
-    if check_result[:state]
-      if check_result[:distance] == 0
+    if check_result.state
+      if check_result.distance == 0
         flash[:notice] = t(:correct_translation_notice)
       else
         flash[:alert] = t 'translation_from_misprint_alert',
@@ -33,6 +22,7 @@ class Dashboard::TrainerController < Dashboard::BaseController
                           original_text: @card.original_text,
                           translated_text: @card.translated_text
       end
+
       redirect_to trainer_path
     else
       flash[:alert] = t(:incorrect_translation_alert)

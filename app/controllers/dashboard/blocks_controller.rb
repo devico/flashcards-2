@@ -1,9 +1,8 @@
 class Dashboard::BlocksController < Dashboard::BaseController
-  before_action :set_block, only: [:destroy, :edit, :update, :set_as_current,
-                                   :reset_as_current]
+  before_action :set_block, except: [:index, :new, :create]
 
   def index
-    @blocks = current_user.blocks.all.order('title')
+    @blocks = current_user.blocks.order(:title)
   end
 
   def new
@@ -15,6 +14,7 @@ class Dashboard::BlocksController < Dashboard::BaseController
 
   def create
     @block = current_user.blocks.build(block_params)
+
     if @block.save
       redirect_to blocks_path
     else

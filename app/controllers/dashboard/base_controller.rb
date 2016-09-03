@@ -9,7 +9,6 @@ class Dashboard::BaseController < ApplicationController
   end
 
   def not_found
-    flash[:alert] = 'Вы обратились к несуществующей записи.'
-    redirect_to root_path
+    redirect_to root_path, alert: t(:not_found_alert)
   end
 end

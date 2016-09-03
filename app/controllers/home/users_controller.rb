@@ -1,5 +1,4 @@
 class Home::UsersController < Home::BaseController
-
   def new
     if current_user
       redirect_to root_path
@@ -10,11 +9,12 @@ class Home::UsersController < Home::BaseController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       auto_login(@user)
       redirect_to root_path, notice: t(:user_created_successfully_notice)
     else
-      respond_with @user
+      render :new
     end
   end
 

@@ -1,12 +1,10 @@
 class Dashboard::ProfileController < Dashboard::BaseController
-
   def edit
   end
 
   def update
     if current_user.update(user_params)
-      redirect_to edit_profile_path,
-                  notice: 'Профиль пользователя успешно обновлен.'
+      redirect_to edit_profile_path, notice: t(:user_profile_success_notice)
     else
       respond_with current_user
     end
@@ -15,7 +13,6 @@ class Dashboard::ProfileController < Dashboard::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation,
-                                 :locale)
+    params.require(:user).permit(:email, :password, :password_confirmation, :locale)
   end
 end

@@ -105,7 +105,7 @@ describe 'password authentication' do
       fill_in 'user[password]', with: '12345'
       fill_in 'user[password_confirmation]', with: '12345'
       click_button 'Сохранить'
-      expect(page).to have_content 'Профиль пользователя успешно обновлен.'
+      expect(page).to have_content 'User profile successfully updated.'
     end
 
     it 'authentication TRUE' do

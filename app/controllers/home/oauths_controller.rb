@@ -7,6 +7,7 @@ class Home::OauthsController < Home::BaseController
 
   def callback
     provider = auth_params[:provider]
+
     if @user = login_from(provider)
       redirect_to trainer_path, notice: (t 'log_in_is_successful_provider_notice',
                                         provider: provider.titleize)

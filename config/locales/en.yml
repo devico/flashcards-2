@@ -18,7 +18,9 @@ en:
   all_cards_label: 'All cards'
   add_card_label: 'Add card'
   user_profile_label: 'User profile'
+  user_profile_success_notice: 'User profile successfully updated.'
   delete_user_label: 'Delete user'
+  delete_user_notice: 'User successfully deleted.'
   log_out_label: 'Log out'
   user_created_successfully_notice: 'User created successfully.'
   please_log_in_alert: 'Please log in.'
@@ -42,5 +44,6 @@ en:
         messages:
           blank: 'Fill out the field.'
           too_short: 'Short value.'
+          password_confirmation: 'Values do not match.'
           confirmation: 'Values do not match.'
           taken: 'Not a unique value.'

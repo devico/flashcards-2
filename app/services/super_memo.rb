@@ -4,7 +4,12 @@
 
 class SuperMemo
   class << self
-    def algorithm(interval, repeat, efactor, attempt, distance, distance_limit)
+    def algorithm(object, distance, distance_limit = 1)
+      interval = object.interval
+      repeat   = object.repeat
+      efactor  = object.efactor
+      attempt  = object.attempt
+
       quality = set_quality(attempt, distance, distance_limit)
       efactor = set_efactor(efactor, quality)
       sm_hash = if quality >= 3
