@@ -38,6 +38,7 @@ ru:
   log_out_is_successful_notice: 'Выход выполнен успешно.'
   log_out_failed_provider_alert: "Вход из аккаунта %{provider.titleize} не выполнен ."
   please_log_in: 'Пожалуйста авторизуйтесь.'
+  no_permission: 'У вас нету прав для просмотра содержимого этой страницы.'
 
   activerecord:
     errors:

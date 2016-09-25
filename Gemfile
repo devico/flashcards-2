@@ -34,9 +34,15 @@ gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'puma'
 
+gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
+gem 'pundit'
+gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
+gem 'rolify'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'meta_request'
 end

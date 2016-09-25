@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   filter :locale
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'main#index'
 
   scope module: 'home' do
@@ -33,4 +34,5 @@ Rails.application.routes.draw do
     get 'profile/:id/edit' => 'profile#edit', as: :edit_profile
     put 'profile/:id' => 'profile#update', as: :profile
   end
+
 end

@@ -34,3 +34,13 @@ doc.search('//table/tbody/tr').each do |row|
 
   puts msg
 end
+
+
+roles = [:admin, :moderator, :member]
+
+roles.each.with_index do |role, index|
+  user = User.create(email: "test_email#{index}@gmail.com", password: 123456, password_confirmation: 123456)
+  user.add_role(role)
+
+  puts "User created #{user.email} with role: #{role}"
+end
