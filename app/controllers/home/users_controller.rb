@@ -9,6 +9,7 @@ class Home::UsersController < Home::BaseController
 
   def create
     @user = User.new(user_params)
+    @user.add_role :member
 
     if @user.save
       auto_login(@user)

@@ -38,6 +38,7 @@ en:
   log_out_is_successful_notice: 'Log out is successful.'
   log_out_failed_provider_alert: "Log out of your account %{provider} failed."
   please_log_in: 'Please log in.'
+  no_permission: 'У вас нету прав для просмотра содержимого этой страницы.'
 
   activerecord:
       errors:

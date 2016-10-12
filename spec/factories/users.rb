@@ -6,6 +6,18 @@ FactoryGirl.define do
     locale 'ru'
     current_block_id ''
 
+    trait :moderator do
+      after(:create) { |user| user.add_role(:moderator) }
+    end
+
+    trait :admin do
+      after(:create) { |user| user.add_role(:admin) }
+    end
+
+    trait :member do
+      after(:create) { |user| user.add_role(:member) }
+    end
+
     factory :user_with_one_block_without_cards do
       after(:create) do |user|
         create(:block, user: user)
@@ -49,6 +61,12 @@ FactoryGirl.define do
       after(:create) do |user|
         create(:block_with_two_cards, user: user)
         create(:block_with_two_cards, user: user)
+      end
+    end
+
+    factory :user_as_moderator do
+      after(:create) do
+
       end
     end
   end
