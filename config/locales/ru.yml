@@ -10,8 +10,8 @@ ru:
   email_label: 'E-mail'
   password_label: 'Пароль'
   password_confirmation_label: 'Подтверждение пароля'
-  sing_up_label: 'Зарегистрироваться'
-  sing_in_label: 'Вход'
+  sign_up_label: 'Зарегистрироваться'
+  sign_in_label: 'Вход'
   log_in_label: 'Войти'
   all_decks_label: 'Все колоды'
   add_deck_label: 'Добавить колоду'
@@ -39,6 +39,13 @@ ru:
   log_out_failed_provider_alert: "Вход из аккаунта %{provider.titleize} не выполнен ."
   please_log_in: 'Пожалуйста авторизуйтесь.'
   no_permission: 'У вас нету прав для просмотра содержимого этой страницы.'
+  save: 'Сохранить'
+  dashboard: 'Dashboard'
+  wrong_translation: 'Вы ввели не верный перевод. Повторите попытку.'
+  expect_to_date_revision: 'Ожидайте наступления даты пересмотра.'
+  original: 'Оригинал'
+  rigth_translation_continue: 'Вы ввели верный перевод. Продолжайте.'
+  translation_typo: 'Вы ввели перевод c опечаткой.'
 
   activerecord:
     errors:

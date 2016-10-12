@@ -11,7 +11,7 @@ describe 'access to admin interface' do
     it 'as member' do
       user = create(:user, :member)
 
-      login(user.email, '12345', 'Войти')
+      login(user.email, '12345', I18n.t(:log_in_label))
       visit rails_admin_path
 
       expect(page).to have_content I18n.t(:no_permission)
@@ -20,19 +20,19 @@ describe 'access to admin interface' do
     it 'as moderator' do
       user = create(:user, :moderator)
 
-      login(user.email, '12345', 'Войти')
+      login(user.email, '12345', I18n.t(:log_in_label))
       visit rails_admin_path
 
-      expect(page).to have_content 'Dashboard'
+      expect(page).to have_content I18n.t(:dashboard)
     end
 
    it 'as admin' do
       user = create(:user, :admin)
 
-      login(user.email, '12345', 'Войти')
+      login(user.email, '12345', I18n.t(:log_in_label))
       visit rails_admin_path
 
-      expect(page).to have_content 'Dashboard'
+      expect(page).to have_content I18n.t(:dashboard)
     end
   end
 end

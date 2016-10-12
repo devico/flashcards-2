@@ -10,9 +10,9 @@ en:
   email_label: 'E-mail'
   password_label: 'Password'
   password_confirmation_label: 'Password Confirmation'
-  sing_up_label: 'Sing up'
+  sign_up_label: 'Sign up'
   log_in_label: 'Log in'
-  sing_in_label: 'Sing in'
+  sign_in_label: 'Sign in'
   all_decks_label: 'All deck'
   add_deck_label: 'Add deck'
   all_cards_label: 'All cards'
@@ -39,6 +39,13 @@ en:
   log_out_failed_provider_alert: "Log out of your account %{provider} failed."
   please_log_in: 'Please log in.'
   no_permission: 'У вас нету прав для просмотра содержимого этой страницы.'
+  save: 'Save'
+  dashboard: 'Dashboard'
+  wrong_translation_repeat: 'You entered an invalid translation. Please try again.'
+  expect_to_date_revision: 'Expect the date of revision'
+  original: 'Original'
+  rigth_translation_continue: 'You have entered the correct translation.'
+  translation_typo: 'You entered translation from misprint.'
 
   activerecord:
       errors:
