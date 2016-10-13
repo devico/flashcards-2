@@ -6,6 +6,8 @@ class Card < ActiveRecord::Base
   belongs_to :user
   belongs_to :block
 
+  attr_accessor :flickr_search_query, :remote_image_url
+
   REPEATING_QUANTITY = 4
 
   validate :texts_are_not_equal

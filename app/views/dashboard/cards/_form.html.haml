@@ -1,6 +1,6 @@
 = simple_form_for card do |f|
   .form-group
-    = f.input :original_text,  as: :text, label: 'Оригинал',
+    = f.input :original_text,  as: :text, label: t(:original),
       input_html: { class: 'form-control', required: true, autofocus: true }
   .form-group
     = f.input :translated_text,  as: :text, label: 'Перевод',
@@ -8,6 +8,21 @@
   .form-group
     = f.input :image, as: :file, label: 'Изображение'
     = f.input :image_cache, as: :hidden
+  .form-group
+    = link_to t(:load_from_flickr), '#', id: 'load-from-link', class: 'btn btn-primary'
+
+    .row#flickr-search-block
+      .col-xs-3
+        = f.input :flickr_search_query, as: :string, label: false, required: false,
+          input_html: { class: 'form-control' }
+        = f.input :remote_image_url, as: :hidden
+      .col-xs-3
+        = link_to t(:search_in_flickr), '#', class: 'btn btn-default', id: 'flickr-search-button'
+
+      #flickr-images-block
+  .form-group
+    .well#flickr-selected-image-block
+      = image_tag '', id: 'flickr-selected-image'
   .form-group
     = f.input :block_id, collection: current_user.blocks.all.order('title'),
       prompt: 'Выберите колоду', label: 'Колоды',

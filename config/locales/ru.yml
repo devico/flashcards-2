@@ -46,6 +46,8 @@ ru:
   original: 'Оригинал'
   rigth_translation_continue: 'Вы ввели верный перевод. Продолжайте.'
   translation_typo: 'Вы ввели перевод c опечаткой.'
+  load_from_flickr: 'Загрузить из Flickr'
+  search_in_flickr: 'Найти во Flickr'
 
   activerecord:
     errors:

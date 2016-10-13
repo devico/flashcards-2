@@ -46,6 +46,8 @@ en:
   original: 'Original'
   rigth_translation_continue: 'You have entered the correct translation.'
   translation_typo: 'You entered translation from misprint.'
+  load_from_flickr: 'Загрузить из Flickr'
+  search_in_flickr: 'Найти во Flickr'
 
   activerecord:
       errors:

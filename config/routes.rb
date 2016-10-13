@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'main#index'
 
+  resources :flickr
+
   scope module: 'home' do
     resources :user_sessions, only: [:new, :create]
     resources :users, only: [:new, :create]
