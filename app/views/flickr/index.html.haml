@@ -1,0 +1,6 @@
+.jumbotron#flickr-images-grid-block
+  - @flickr_photos.each do |collection|
+    .row
+      - collection.each do |item|
+        .col-md-3
+          = image_tag(flickr_image_url(item), class: 'flickr-image')

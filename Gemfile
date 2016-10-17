@@ -38,6 +38,7 @@ gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
 gem 'pundit'
 gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 gem 'rolify'
+gem 'flickraw'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
@@ -45,4 +46,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'meta_request'
+  gem 'webmock'
+  gem 'vcr'
 end
