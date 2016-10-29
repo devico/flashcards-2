@@ -35,7 +35,21 @@ class Dashboard::CardsController < Dashboard::BaseController
     respond_with @card
   end
 
+  def load_cards_form
+
+  end
+
+  def parse_resourse
+    FillCardsJob.perform_later(@current_user.id, card_form_params.to_h)
+
+    redirect_to cards_path
+  end
+
   private
+
+  def card_form_params
+    params.require(:card_form).permit(:translated_text_selector, :original_text_selector, :url, :search_xpath)
+  end
 
   def set_card
     @card = current_user.cards.find(params[:id])

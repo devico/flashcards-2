@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h3 Добавлены новые слова:
+
+    %table
+      %thead
+        %th English
+        %th Russian
+      %tbody
+        - @words.each do |word|
+          %tr
+            %td= word[:original]
+            %td= word[:translated]
+
+    %h3 Найденные ошибки
+    - @errors.each do |error|
+      %pre= error[:msg]
+

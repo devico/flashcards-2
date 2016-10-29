@@ -48,6 +48,11 @@ ru:
   translation_typo: 'Вы ввели перевод c опечаткой.'
   load_from_flickr: 'Загрузить из Flickr'
   search_in_flickr: 'Найти во Flickr'
+  search_xpath: 'Селектор блока'
+  original_selector: 'Селектор оригинала'
+  translated_selector: 'Селектор перевода'
+  parse_words: 'Получить слова'
+  parse_url: 'Источник'
 
   activerecord:
     errors:

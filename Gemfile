@@ -35,10 +35,12 @@ gem 'newrelic_rpm'
 gem 'puma'
 
 gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
+# gem 'api_flashcards', path: '/home/zvlex/devz/mkdev/api_flashcards'
 gem 'pundit'
 gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 gem 'rolify'
 gem 'flickraw'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
