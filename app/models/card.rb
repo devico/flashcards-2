@@ -45,6 +45,6 @@ class Card < ActiveRecord::Base
   end
 
   def full_downcase(str)
-    str.mb_chars.downcase.to_s.squeeze(' ').lstrip
+    str.mb_chars.downcase.to_s.squeeze(' ').lstrip if str
   end
 end

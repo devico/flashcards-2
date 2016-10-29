@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   filter :locale
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount ApiFlashcards::Engine, at: '/api_flashcards'
+
   root 'main#index'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   resources :flickr
 
@@ -21,7 +26,12 @@ Rails.application.routes.draw do
     resources :users, only: :destroy
     post 'logout' => 'user_sessions#destroy', :as => :logout
 
-    resources :cards
+    resources :cards do
+      collection do
+        get :load_cards_form
+        post :parse_resourse
+      end
+    end
 
     resources :blocks do
       member do

@@ -1,0 +1,12 @@
+.jumbotron
+  = simple_form_for :card_form, url: parse_resourse_cards_path do |f|
+    .form-group
+      = f.input :url, label: t(:parse_url), input_html: { class: 'form-control' }
+    .form-group
+      = f.input :search_xpath, label: t(:search_xpath), input_html: { class: 'form-control' }
+    .form-group
+      = f.input :original_text_selector, label: t(:original_selector), input_html: { class: 'form-control' }
+    .form-group
+      = f.input :translated_text_selector, label: t(:translated_selector), input_html: { class: 'form-control' }
+    .form-group
+      = f.button :submit, t(:parse_words), class: 'btn btn-success'

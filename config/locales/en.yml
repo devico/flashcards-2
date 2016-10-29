@@ -46,8 +46,13 @@ en:
   original: 'Original'
   rigth_translation_continue: 'You have entered the correct translation.'
   translation_typo: 'You entered translation from misprint.'
-  load_from_flickr: 'Загрузить из Flickr'
-  search_in_flickr: 'Найти во Flickr'
+  load_from_flickr: 'Load from Flickr'
+  search_in_flickr: 'Search in Flickr'
+  search_xpath: 'Block selector'
+  original_selector: 'Original text selector'
+  translated_selector: 'Translated text selector'
+  parse_words: 'Get words'
+  parse_url: 'Source'
 
   activerecord:
       errors:
