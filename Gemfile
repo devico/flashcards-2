@@ -41,6 +41,7 @@ gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 gem 'rolify'
 gem 'flickraw'
 gem 'sidekiq'
+gem 'redis-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
