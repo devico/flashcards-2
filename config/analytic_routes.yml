@@ -1,0 +1,30 @@
+version-1:
+  home:
+    users:
+      -
+        action: create
+        event: 'register'
+    user_sessions:
+      -
+        action: create
+        event: 'login'
+    oauths:
+      -
+        action: oauth
+        event: 'login_with_github'
+  dashboard:
+    cards:
+      -
+        action: create
+        event: 'create_card'
+      -
+        action: index
+        event: 'index'
+    trainer:
+      -
+        action: review_card
+        event: 'review_card'
+  flickr:
+    -
+      action: index
+      event: 'flickr_search'

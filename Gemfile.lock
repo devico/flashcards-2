@@ -161,6 +161,9 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     levenshtein (0.2.2)
+    logstash-event (1.2.02)
+    logstash-logger (0.19.2)
+      logstash-event (~> 1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -358,6 +361,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   levenshtein
+  logstash-logger
   meta_request
   mini_magick
   newrelic_rpm
