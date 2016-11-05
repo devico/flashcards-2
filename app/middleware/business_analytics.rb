@@ -4,7 +4,6 @@ class BusinessAnalytics
 
   def initialize(app)
     @app = app
-    @logger = LogStashLogger.new(port: 5228)
   end
 
   # @note Push events to Logstash
@@ -31,7 +30,7 @@ class BusinessAnalytics
   # @param event_name [String] event name message
   # @param query_string [String] request query string
   def create_event!(event_type, event_name, query_string)
-    @logger.send(event_type, LogStash::Event.new(message: event_name, locale: @url[:locale], query_string: query_string))
+    logger.send(event_type, LogStash::Event.new(message: event_name, locale: @url[:locale], query_string: query_string))
   end
 
   # @return [Boolean] if current action is permitted
@@ -49,7 +48,7 @@ class BusinessAnalytics
     split_array = @url[:controller].split('/')
 
     # permitted routes from analytics_routes.yml
-    ANALYTIC_ROUTES.dig("version-#{VERSION_ID}", *split_array) || []
+    analytic_routes.dig("version-#{VERSION_ID}", *split_array) || []
   end
 
   # @return [String] event name
@@ -58,6 +57,28 @@ class BusinessAnalytics
       action['event']
     else
       DEFAULT_EVENT_NAME
+    end
+  end
+
+  class << self
+    def configure(&block)
+      instance_eval(&block)
+    end
+
+    def logger(logstash_instance)
+      class_eval do
+        define_method :logger do
+          logstash_instance
+        end
+      end
+    end
+
+    def analytic_routes(routes_hash)
+      class_eval do
+        define_method :analytic_routes do
+          routes_hash
+        end
+      end
     end
   end
 end
