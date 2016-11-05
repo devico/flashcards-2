@@ -42,6 +42,7 @@ gem 'rolify'
 gem 'flickraw'
 gem 'sidekiq'
 gem 'redis-rails'
+gem 'logstash-logger'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
